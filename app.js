@@ -1,8 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const blogRoutes = require('./routes/blogRoutes');
+// const blogRoutes = require('./routes/blogRoutes');
 const salesRoutes = require('./routes/salesRoutes')
+const productRoutes = require('./routes/productRoutes')
 
 const cors = require('cors')
 
@@ -31,16 +32,18 @@ app.use((req, res, next) => {
 });
 
 // routes
-app.get('/', (req, res) => {
-  res.redirect('/blogs');
-});
+// app.get('/', (req, res) => {
+//   res.redirect('/blogs');
+// });
 
-app.get('/about', (req, res) => {
-  res.render('about', { title: 'About' });
-});
+// app.get('/about', (req, res) => {
+//   res.render('about', { title: 'About' });
+// });
 
-// blog routes
-app.use('/blogs', blogRoutes);
+// blog sales
+app.use('/sales', salesRoutes);
+
+app.use('/productos', productRoutes)
 
 
 // 404 page
